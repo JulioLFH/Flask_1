@@ -1,0 +1,371 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>REGISTRO | ThemeKit - Admin Template</title>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet">
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/@fortawesome/fontawesome-free/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/ionicons/dist/css/ionicons.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/icon-kit/dist/css/iconkit.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/perfect-scrollbar/css/perfect-scrollbar.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/select2/dist/css/select2.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/summernote/dist/summernote-bs4.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='node_modules/mohithg-switchery/dist/switchery.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css/theme.min.css') }}">
+        <script src="{{ url_for('static', filename='src/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
+    </head>
+
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="wrapper nav-collapsed menu-collapsed">
+            <header class="header-top" header-theme="light">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between">
+                        <div class="top-menu d-flex align-items-center">
+                            <button type="button" class="btn-icon mobile-nav-toggle d-lg-none"><span></span></button>
+                            <button type="button" id="navbar-fullscreen" class="nav-link"><i class="ik ik-maximize"></i></button>
+                        </div>
+                        <!--
+                        <div class="top-menu d-flex align-items-center">
+                            <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" src="{{ url_for('static', filename='img/user.jpg') }}" alt=""></a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="profile.html"><i class="ik ik-user dropdown-icon"></i> Profile</a>
+                                    <a class="dropdown-item" href="#"><i class="ik ik-settings dropdown-icon"></i> Settings</a>
+                                    <a class="dropdown-item" href="#"><span class="float-right"><span class="badge badge-primary">6</span></span><i class="ik ik-mail dropdown-icon"></i> Inbox</a>
+                                    <a class="dropdown-item" href="#"><i class="ik ik-navigation dropdown-icon"></i> Message</a>
+                                    <a class="dropdown-item" href="login.html"><i class="ik ik-power dropdown-icon"></i> Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-wrap">
+                <div class="app-sidebar colored">
+                    <div class="sidebar-header">
+                        <a class="header-brand" href="{{ url_for('index') }}">
+                            <div class="logo-img">
+                               <img src="{{ url_for('static', filename='img/brand-white.svg') }}" class="header-brand-img" alt="lavalite"> 
+                            </div>
+                            <span class="text">Aliex</span>
+                        </a>
+                        <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
+                        <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button>
+                    </div>
+                    
+                    <div class="sidebar-content">
+                        <div class="nav-container">
+                            <nav id="main-menu-navigation" class="navigation-main">
+                                <div class="nav-lavel">Análisis de Productos</div>
+                                <div class="nav-item has-sub nav-collapsed-open">
+                                    <a href="#"><i class="ik ik-shopping-bag"></i><span>Mayonesa Walibi</span></a>
+                                    <div class="submenu-content">
+                                        <a href="{{ url_for('Registro_Analisis') }}" class="menu-item active">Registrar Análisis</a>
+                                        <a href="{{ url_for('Tabla_Analisis') }}" class="menu-item">Lista de Análisis</a>
+                                        <!--<a href="{{ url_for('Tabla_Analisis') }}" class="menu-item">Buttons</a>
+                                        <a href="{{ url_for('Tabla_Analisis') }}" class="menu-item">Navigation</a>-->
+                                    </div>
+                                </div>
+                                <div class="nav-lavel">Consultas</div>
+                                <div class="nav-item">
+                                    <a href="{{ url_for('Consulta_certificado') }}"><i class="ik ik-file-text"></i><span>Certificado</span></a>
+                                </div>
+
+                            </nav>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+                
+                <div class="main-content">
+                    <div class="container-fluid">
+                        <div class="page-header">
+                            <div class="row align-items-end">
+                                <div class="col-lg-8">
+                                    <div class="page-header-title">
+                                        <i class="ik ik-edit bg-blue"></i>
+                                        <div class="d-inline">
+                                            <h5>Registro de Análisis</h5>
+                                            <span>Registro de Análisis de Mayonesa Walibi</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <nav class="breadcrumb-container" aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            <li class="breadcrumb-item">
+                                                <a href="{{ url_for('index') }}"><i class="ik ik-home"></i></a>
+                                            </li>
+                                            <li class="breadcrumb-item"><a href="#">Registro</a></li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header"><h3>Detalle de Registro</h3></div>
+                                    <div class="card-body">
+                                        <form class="forms-sample" action="/guardar_analisis" method="post">
+                                            
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Fecha de Produccion</label>
+                                                        <input type="date" class="form-control" id="FP" name="FP" onchange="calcularFechaVencimiento()" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Fecha de Vencimiento</label>
+                                                        <input type="date" class="form-control" id="FV" name="FV" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Fórmula</label>
+                                                        <input type="text" class="form-control" id="Formula" name="Formula" placeholder="Fórmula" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Lote</label>
+                                                        <input type="text" class="form-control" id="Lote" name="Lote" placeholder="Lote" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                function calcularFechaVencimiento() {
+                                                    const fechaProduccion = document.getElementById('FP').value;
+                                                    if (fechaProduccion) {
+                                                        const [año, mes, dia] = fechaProduccion.split('-');
+                                                        const fechaVencimiento = new Date(parseInt(año), parseInt(mes), parseInt(dia));
+                                                        fechaVencimiento.setMonth(fechaVencimiento.getMonth() + 9);
+                                                        const añoVencimiento = fechaVencimiento.getFullYear();
+                                                        const mesVencimiento = String(fechaVencimiento.getMonth() + 1).padStart(2, '0');
+                                                        const diaVencimiento = String(fechaVencimiento.getDate()).padStart(2, '0');
+                                                        const fechaVencimientoFormateada = `${añoVencimiento}-${mesVencimiento}-${diaVencimiento}`;
+                                                        document.getElementById('FV').value = fechaVencimientoFormateada;
+                                                    } else {
+                                                        document.getElementById('FV').value = '';
+                                                    }
+                                                }
+                                            </script>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">PH1</label>
+                                                        <input type="number" class="form-control" id="PH1" name="PH1" placeholder="PH1" step="0.01" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">PH2</label>
+                                                        <input type="number" class="form-control" id="PH2" name="PH2" placeholder="PH2" step="0.01" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">PH3</label>
+                                                        <input type="number" class="form-control" id="PH3" name="PH3" placeholder="PH3" step="0.01" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">PH4</label>
+                                                        <input type="number" class="form-control" id="PH4" name="PH4" placeholder="PH4" step="0.01" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">PH-PROM</label>
+                                                        <input type="number" class="form-control" id="PH-PROM" name="PH-PROM" placeholder="PH PROM" step="0.01" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                // Función para calcular el promedio de los valores de PH
+                                                function calcularPHProm() {
+                                                    var ph1 = parseFloat(document.getElementById('PH1').value);
+                                                    var ph2 = parseFloat(document.getElementById('PH2').value);
+                                                    var ph3 = parseFloat(document.getElementById('PH3').value);
+                                                    var ph4 = parseFloat(document.getElementById('PH4').value);
+                                            
+                                                    // Verifica si todos los campos tienen valores válidos
+                                                    if (!isNaN(ph1) && !isNaN(ph2) && !isNaN(ph3) && !isNaN(ph4)) {
+                                                        var phProm = (ph1 + ph2 + ph3 + ph4) / 4;
+                                                        // Muestra el resultado en el campo PH-PROM
+                                                        document.getElementById('PH-PROM').value = phProm.toFixed(2); // Redondea a dos decimales
+                                                    }
+                                                }
+                                            
+                                                // Llama a la función calcularPHProm cada vez que se cambia el valor de un campo PH
+                                                window.onload = function() {
+                                                    var camposPH = document.querySelectorAll('[id^="PH"]');
+                                                    camposPH.forEach(function(campo) {
+                                                        campo.addEventListener('input', calcularPHProm);
+                                                    });
+                                                };
+                                            </script>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Consistencia 1</label>
+                                                        <input type="number" class="form-control" id="Consist1" name="Consist1" placeholder="Consist1" step="0.01" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Consistencia 2</label>
+                                                        <input type="number" class="form-control" id="Consist2" name="Consist2" placeholder="Consist2" step="0.01" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Color</label>
+                                                        <input type="text" class="form-control" id="Color" name="Color" placeholder="Color" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Sabor</label>
+                                                        <input type="text" class="form-control" id="Sabor" name="Sabor" placeholder="Sabor" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Olor</label>
+                                                        <input type="text" class="form-control" id="Olor" name="Olor" placeholder="Olor" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Apariencia</label>
+                                                        <input type="text" class="form-control" id="Apariencia" name="Apariencia" placeholder="Apariencia" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1"># de batidas</label>
+                                                        <input type="number" class="form-control" id="batidas" name="batidas" placeholder="# de batidas" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1"># de licuadora</label>
+                                                        <input type="text" class="form-control" id="licuadora" name="licuadora" placeholder="# de licuadora" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Presentacion</label>
+                                                        <input type="text" class="form-control" id="presentacion" name="presentacion" placeholder="Presentacion" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Envasadora</label>
+                                                        <input type="text" class="form-control" id="envasadora" name="envasadora" placeholder="Envasadora" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="exampleInputUsername1">Degustacion</label>
+                                                        <input type="text" class="form-control" id="degustacion" name="degustacion" placeholder="Degustacion" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="licuadora">Observaciones</label>
+                                                        <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="Observaciones" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="Acciones_Correctivas">Acciones Correctivas</label>
+                                                        <input type="text" class="form-control" id="acciones_correctivas" name="acciones_correctivas" placeholder="Acciones_Correctivas" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="Estado">Estado</label>
+                                                        <input type="text" class="form-control" id="estado" name="estado" placeholder="Estado" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label for="Marca">Marca</label>
+                                                        <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary mr-2">Agregar</button>
+                                            <a href="{{ url_for('Tabla_Analisis') }}" class="btn btn-danger">Cancelar</a>
+                                          </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <div class="w-100 clearfix">
+                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2024 All Rights Reserved.</span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../src/js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+        <script src="{{ url_for('static', filename='node_modules/popper.js/dist/umd/popper.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='node_modules/select2/dist/js/select2.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='node_modules/summernote/dist/summernote-bs4.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='node_modules/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='node_modules/jquery.repeater/jquery.repeater.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='node_modules/mohithg-switchery/dist/switchery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='dist/js/theme.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/form-advanced.js') }}"></script>
+
+
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+    </body>
+</html>
